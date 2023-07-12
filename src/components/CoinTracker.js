@@ -4,12 +4,7 @@ function CoinTracker(){
     const [loading, setLoading] = useState(true);
     const [coins, setCoins] = useState([]);
     useEffect (() => {
-        fetch("https://api.coinpaprika.com/v1/tickers")
-        .then((response)=>response.json())
-        .then((data)=>{
-            setCoins(data);
-            setLoading(false);
-            });
+        
     },[])
     return(
         <div>
