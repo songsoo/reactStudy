@@ -1,10 +1,11 @@
 import {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
-function Movie({medium_cover_image, title, summary, genres}){
+import {Link} from "react-router-dom";
+function Movie({id, medium_cover_image, title, summary, genres}){
     return(
         <div>
             <img src={medium_cover_image} alt={title}></img>
-            <a href=""><h3>"{title}"</h3></a>
+            <Link to={`/movie/${id}`}><h3>"{title}"</h3></Link>
             <p>{summary}</p>   
             <ul>
                 {genres.map((genre)=>
@@ -16,10 +17,11 @@ function Movie({medium_cover_image, title, summary, genres}){
 }
 
 Movie.propTypes={
-    coverImg : PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    medium_cover_image : PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     summary: PropTypes.string.isRequired,
-    genre: PropTypes.arrayOf(PropTypes.string).isRequired,
+    genres: PropTypes.arrayOf(PropTypes.string).isRequired,
 
 }
 export default Movie;
